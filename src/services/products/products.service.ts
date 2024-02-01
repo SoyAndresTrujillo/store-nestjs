@@ -60,8 +60,12 @@ export class ProductsService {
 
   remove(id: number) {
     const index = this.products.findIndex((product) => product.id === id);
-    const product = this.products[index];
-    this.products = this.products.filter((product) => product.id !== id);
-    return product;
+    if (index === -1) {
+      throw new NotFoundException(`Product #${id} not found`);
+    }
+    this.products.splice(index, 1);
+    return {
+      message: `Product #${id} removed`,
+    };
   }
 }
