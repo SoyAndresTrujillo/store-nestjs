@@ -28,7 +28,11 @@ export class ProductsService {
   }
 
   findOne(id: number) {
-    return this.products.find((product) => product.id === id);
+    const product = this.products.find((product) => product.id === id);
+    if (!product) {
+      return null;
+    }
+    return product;
   }
 
   create(payload: any) {
