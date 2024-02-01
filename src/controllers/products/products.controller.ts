@@ -6,8 +6,13 @@ import {
   Post,
   Body,
   Put,
-  Delete
+  Delete,
+  HttpStatus,
+  HttpCode,
+  Res,
 } from '@nestjs/common';
+
+import { Response, response } from 'express';
 
 @Controller('products')
 export class ProductsController {
@@ -22,7 +27,12 @@ export class ProductsController {
 
   // luego colocar las rutas dinamicas
   @Get(':id')
-  getOne(@Param('id') id: string) {
+  @HttpCode(HttpStatus.ACCEPTED)
+  getOne(@Res() response: Response, @Param('id') id: string) {
+    // type express, but, is more utils use Decorators of nestjs
+    // response.status(200).send({
+    //   message: `product ${id}`,
+    // });
     return {
       message: `product ${id}`,
     };
