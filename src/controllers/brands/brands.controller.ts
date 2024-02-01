@@ -3,17 +3,23 @@ import { Controller, Get, Param } from '@nestjs/common';
 @Controller('brands')
 export class BrandsController {
   @Get()
-  getBrands() {
-    return 'List of brands';
+  getAll(): any {
+    return {
+      message: 'All brands',
+    };
   }
 
   @Get(':id')
-  getBrand(@Param('id') id: string) {
-    return `Brand #${id}`;
+  getOne(@Param('id') id: string): any {
+    return {
+      message: `Brand ${id}`,
+    };
   }
 
   @Get('filter/:brand')
-  getBrandByFilter(@Param('brand') brand: string) {
-    return `Brand ${brand}`;
+  getBrandByFilter(@Param('brand') brand: string): any {
+    return {
+      message: `filtering brands by ${brand}`,
+    };
   }
 }

@@ -3,10 +3,12 @@ import { Controller, Get, Param } from '@nestjs/common';
 @Controller('categories')
 export class CategoriesController {
   @Get(':categorieId/products/:productId')
-  getProductByCategory(
+  get(
     @Param('categorieId') categorieId: string,
     @Param('productId') productId: string,
-  ) {
-    return `product ${productId} and category ${categorieId}`;
+  ): any {
+    return {
+      message: `Product ${productId} of category ${categorieId}`,
+    };
   }
 }
