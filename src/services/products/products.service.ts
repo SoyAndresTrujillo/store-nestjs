@@ -40,4 +40,23 @@ export class ProductsService {
     this.products.push(newProduct);
     return newProduct;
   }
+
+  update(id: number, payload: any) {
+    const product = this.findOne(id);
+    if (product) {
+      const index = this.products.findIndex((product) => product.id === id);
+      this.products[index] = {
+        ...product,
+        ...payload,
+      };
+      return this.products[index];
+    }
+  }
+
+  remove(id: number) {
+    const index = this.products.findIndex((product) => product.id === id);
+    const product = this.products[index];
+    this.products = this.products.filter((product) => product.id !== id);
+    return product;
+  }
 }
