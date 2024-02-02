@@ -9,7 +9,7 @@ import {
   Delete,
   HttpStatus,
   HttpCode,
-  Res,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { ProductsService } from 'src/services/products/products.service';
 import { Response } from 'express';
@@ -30,7 +30,7 @@ export class ProductsController {
   // luego colocar las rutas dinamicas
   @Get(':id')
   @HttpCode(HttpStatus.ACCEPTED)
-  getOne(@Param('id') id: string) {
+  getOne(@Param('id', ParseIntPipe) id: number) {
     // type express, but, is more utils use Decorators of nestjs
     // response.status(200).send({
     //   message: `product ${id}`,
@@ -38,7 +38,7 @@ export class ProductsController {
     // return {
     //   message: `product ${id}`,
     // };
-    return this.productsService.findOne(+id); // +id => convert string to number
+    return this.productsService.findOne(id); // +id => convert string to number
   }
 
   // Get query params
