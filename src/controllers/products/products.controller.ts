@@ -11,6 +11,7 @@ import {
   HttpCode,
   // ParseIntPipe,
 } from '@nestjs/common';
+import { CreateProductDto, UpdateProductDto } from 'src/dto/products.dto';
 import { ProductsService } from 'src/services/products/products.service';
 import { ParseIntPipe } from 'src/common/parse-int/parse-int.pipe';
 
@@ -55,12 +56,12 @@ export class ProductsController {
   }
 
   @Post()
-  create(@Body() payload: any) {
+  create(@Body() payload: CreateProductDto) {
     return this.productsService.create(payload);
   }
 
   @Put(':id') // put edita completamente un modelo y path parcialmente pero se usa mas put
-  update(@Param('id') id: string, @Body() payload: any) {
+  update(@Param('id') id: string, @Body() payload: UpdateProductDto) {
     return this.productsService.update(+id, payload);
   }
 
