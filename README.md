@@ -24,7 +24,13 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository:
+
+- Controller and y Services.
+- Endpoints GET, POST, PUT y DELETE.
+- Hanlder status code HTTP.
+- Data validate.
+- API security.
 
 ## Installation
 
@@ -64,9 +70,8 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [soyandrestrujillo](https://www.linkedin.com/in/soyandrestrujillo/)
+- GitHub - [soyandrestrujillo](https://github.com/SoyAndresTrujillo)
 
 ## License
 
