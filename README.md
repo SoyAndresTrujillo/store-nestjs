@@ -28,7 +28,7 @@
 
 - Controller and y Services.
 - Endpoints GET, POST, PUT y DELETE.
-- Hanlder status code HTTP.
+- Handler status code HTTP.
 - Data validate.
 - API security.
 
