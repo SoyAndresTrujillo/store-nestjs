@@ -10,9 +10,12 @@ import { CustomersController } from './controllers/customers/customers.controlle
 import { ProductsService } from './services/products/products.service';
 import { CategoriesService } from './services/categories/categories.service';
 import { BrandsService } from './services/brands/brands.service';
+import { ProductsModule } from './products/products.module';
+import { CategoriesModule } from './categories/categories.module';
+import { BrandsModule } from './brands/brands.module';
 
 @Module({
-  imports: [],
+  imports: [ProductsModule, CategoriesModule, BrandsModule],
   controllers: [
     AppController,
     ProductsController,
